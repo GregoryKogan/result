@@ -1,4 +1,4 @@
-#include "../src/Result/Result.hpp"
+#include "../src/result.h"
 #include <gtest/gtest.h>
 #include <string>
 

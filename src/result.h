@@ -28,16 +28,16 @@ template <typename T, typename E> class Result {
   enum ContentType { Value, Error };
   std::variant<T, E> content_;
 
-  auto emplace_value(const T &value) noexcept -> void;
-  auto emplace_error(const E &error) noexcept -> void;
+  auto emplace_value(const T &value) -> void;
+  auto emplace_error(const E &error) -> void;
 
 public:
-  [[nodiscard]] static auto Ok(const T &value) noexcept -> Result<T, E>;
-  [[nodiscard]] static auto Ok(T &&value) noexcept -> Result<T, E>;
+  [[nodiscard]] static auto Ok(const T &value) -> Result<T, E>;
+  [[nodiscard]] static auto Ok(T &&value) -> Result<T, E>;
   [[nodiscard]] static auto Ok() noexcept -> Result<std::monostate, E>;
 
-  [[nodiscard]] static auto Err(const E &error) noexcept -> Result<T, E>;
-  [[nodiscard]] static auto Err(E &&error) noexcept -> Result<T, E>;
+  [[nodiscard]] static auto Err(const E &error) -> Result<T, E>;
+  [[nodiscard]] static auto Err(E &&error) -> Result<T, E>;
 
   [[nodiscard]] auto is_ok() const noexcept -> bool;
   [[nodiscard]] auto is_err() const noexcept -> bool;
@@ -46,25 +46,19 @@ public:
   [[nodiscard]] auto unwrap_err() const -> E;
 };
 
-/// @brief Sets the Result content to T(value) with index based std::variant::get.
-/// @details This is necessary in case of T and E being the same type.
-/// @param value The value to be set.
-/// @return void
-template <typename T, typename E> inline auto Result<T, E>::emplace_value(const T &value) noexcept -> void {
+template <typename T, typename E> inline auto Result<T, E>::emplace_value(const T &value) -> void {
   content_.template emplace<ContentType::Value>(value);
 }
 
-/// @brief Analogous to `emplace_value` but for error type.
-/// @param error The error to be set.
-/// @return void
-template <typename T, typename E> inline auto Result<T, E>::emplace_error(const E &error) noexcept -> void {
+template <typename T, typename E> inline auto Result<T, E>::emplace_error(const E &error) -> void {
   content_.template emplace<ContentType::Error>(error);
 }
 
 /// @brief Creates a successful Result object containing a value.
 /// @param value
 /// @return Result<T, E>
-template <typename T, typename E> inline auto Result<T, E>::Ok(const T &value) noexcept -> Result<T, E> {
+/// @throws Any exception thrown during the initialization of the T value.
+template <typename T, typename E> inline auto Result<T, E>::Ok(const T &value) -> Result<T, E> {
   Result<T, E> result;
   result.emplace_value(value);
   return result;
@@ -73,7 +67,8 @@ template <typename T, typename E> inline auto Result<T, E>::Ok(const T &value) n
 /// @brief Analogous to `Ok(const T &value)` but for rvalue reference.
 /// @param value
 /// @return Result<T, E>
-template <typename T, typename E> inline auto Result<T, E>::Ok(T &&value) noexcept -> Result<T, E> {
+/// @throws Any exception thrown during the initialization of the T value.
+template <typename T, typename E> inline auto Result<T, E>::Ok(T &&value) -> Result<T, E> {
   Result<T, E> result;
   result.emplace_value(std::move(value));
   return result;
@@ -92,7 +87,8 @@ template <typename T, typename E> inline auto Result<T, E>::Ok() noexcept -> Res
 /// @note Although it's possible to create a Result with an empty value, it's impossible to create it with an empty
 /// error. This is enforced by static_assert.
 /// @return Result<T, E>
-template <typename T, typename E> inline auto Result<T, E>::Err(const E &error) noexcept -> Result<T, E> {
+/// @throws Any exception thrown during the initialization of the E value.
+template <typename T, typename E> inline auto Result<T, E>::Err(const E &error) -> Result<T, E> {
   Result<T, E> result;
   result.emplace_error(error);
   return result;
@@ -101,7 +97,8 @@ template <typename T, typename E> inline auto Result<T, E>::Err(const E &error) 
 /// @brief Analogous to `Err(const E &error)` but for rvalue reference.
 /// @param error
 /// @return Result<T, E>
-template <typename T, typename E> inline auto Result<T, E>::Err(E &&error) noexcept -> Result<T, E> {
+/// @throws Any exception thrown during the initialization of the E value.
+template <typename T, typename E> inline auto Result<T, E>::Err(E &&error) -> Result<T, E> {
   Result<T, E> result;
   result.emplace_error(std::move(error));
   return result;

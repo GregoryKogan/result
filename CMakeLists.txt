@@ -15,12 +15,11 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-file(GLOB_RECURSE SOURCES "src/**/*.cpp" "src/**/*.hpp")
-file(GLOB_RECURSE TESTS_SOURCES "tests/*.cpp")
 
+file(GLOB_RECURSE TESTS_SOURCES "tests/*.cpp")
 add_executable(
   tests
-  ${SOURCES}
+  src/result.h
   ${TESTS_SOURCES}
 )
 target_link_libraries(tests GTest::gtest_main)
