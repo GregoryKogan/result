@@ -28,17 +28,13 @@ template <typename T, typename E> class Result {
   enum ContentType { Value, Error };
   std::variant<T, E> content_;
 
-  auto emplace_value(const T &value) -> void;
-  auto emplace_error(const E &error) -> void;
+  template <typename T1> friend struct Ok;
+  template <typename E1> friend struct Err;
+
+  auto set_value(const T &value) -> void { content_.template emplace<ContentType::Value>(value); }
+  auto set_error(const E &error) -> void { content_.template emplace<ContentType::Error>(error); }
 
 public:
-  [[nodiscard]] static auto Ok(const T &value) -> Result<T, E>;
-  [[nodiscard]] static auto Ok(T &&value) -> Result<T, E>;
-  [[nodiscard]] static auto Ok() noexcept -> Result<std::monostate, E>;
-
-  [[nodiscard]] static auto Err(const E &error) -> Result<T, E>;
-  [[nodiscard]] static auto Err(E &&error) -> Result<T, E>;
-
   [[nodiscard]] auto is_ok() const noexcept -> bool;
   [[nodiscard]] auto is_err() const noexcept -> bool;
 
@@ -46,63 +42,56 @@ public:
   [[nodiscard]] auto unwrap_err() const -> E;
 };
 
-template <typename T, typename E> inline auto Result<T, E>::emplace_value(const T &value) -> void {
-  content_.template emplace<ContentType::Value>(value);
-}
+/// @brief Ok object represents a successful outcome and can be converted to a Result.
+/// @details Ok object holds a value of type T. Empty Ok object can be created if T is std::monostate.
+/// @tparam T Type of the value. Defaults to std::monostate.
+template <typename T = std::monostate> class Ok {
+  T value_;
 
-template <typename T, typename E> inline auto Result<T, E>::emplace_error(const E &error) -> void {
-  content_.template emplace<ContentType::Error>(error);
-}
+public:
+  /// @brief Creates an empty Ok object.
+  Ok() : value_() {}
+  /// @brief Creates an Ok object with a value.
+  /// @param value
+  explicit Ok(const T &value) : value_(value) {}
+  /// @brief Creates an Ok object with a moved value.
+  /// @param value
+  explicit Ok(T &&value) : value_(std::move(value)) {}
 
-/// @brief Creates a successful Result object containing a value.
-/// @param value
-/// @return Result<T, E>
-/// @throws Any exception thrown during the initialization of the T value.
-template <typename T, typename E> inline auto Result<T, E>::Ok(const T &value) -> Result<T, E> {
-  Result<T, E> result;
-  result.emplace_value(value);
-  return result;
-}
+  /// @brief Implicitly converts Ok<T> object to a Result<T, E>.
+  /// @tparam E
+  template <typename E> operator Result<T, E>() const { // NOLINT(google-explicit-constructor)
+    Result<T, E> result;
+    result.set_value(value_);
+    return result;
+  }
+};
 
-/// @brief Analogous to `Ok(const T &value)` but for rvalue reference.
-/// @param value
-/// @return Result<T, E>
-/// @throws Any exception thrown during the initialization of the T value.
-template <typename T, typename E> inline auto Result<T, E>::Ok(T &&value) -> Result<T, E> {
-  Result<T, E> result;
-  result.emplace_value(std::move(value));
-  return result;
-}
+/// @brief Err object represents an unsuccessful outcome and can be converted to a Result.
+/// @details Err object holds an error of type E. Err object can't be empty, E must not be std::monostate.
+/// @tparam E
+template <typename E> class Err {
+  static_assert(!std::is_same_v<E, std::monostate>, "E must not be std::monostate");
 
-/// @brief Creates a successful Result object containing an empty value.
-/// @return Result<std::monostate, E>
-template <typename T, typename E> inline auto Result<T, E>::Ok() noexcept -> Result<std::monostate, E> {
-  Result<std::monostate, E> result;
-  result.emplace_value(std::monostate{});
-  return result;
-}
+  E error_;
 
-/// @brief Creates an unsuccessful Result object containing an error.
-/// @param error
-/// @note Although it's possible to create a Result with an empty value, it's impossible to create it with an empty
-/// error. This is enforced by static_assert.
-/// @return Result<T, E>
-/// @throws Any exception thrown during the initialization of the E value.
-template <typename T, typename E> inline auto Result<T, E>::Err(const E &error) -> Result<T, E> {
-  Result<T, E> result;
-  result.emplace_error(error);
-  return result;
-}
+public:
+  Err() = delete;
+  /// @brief Creates an Err object with an error.
+  /// @param error
+  explicit Err(const E &error) : error_(error) {}
+  /// @brief Creates an Err object with a moved error.
+  /// @param error
+  explicit Err(E &&error) : error_(std::move(error)) {}
 
-/// @brief Analogous to `Err(const E &error)` but for rvalue reference.
-/// @param error
-/// @return Result<T, E>
-/// @throws Any exception thrown during the initialization of the E value.
-template <typename T, typename E> inline auto Result<T, E>::Err(E &&error) -> Result<T, E> {
-  Result<T, E> result;
-  result.emplace_error(std::move(error));
-  return result;
-}
+  /// @brief Implicitly converts Err<E> object to a Result<T, E>.
+  /// @tparam T
+  template <typename T> operator Result<T, E>() const { // NOLINT(google-explicit-constructor)
+    Result<T, E> result;
+    result.set_error(error_);
+    return result;
+  }
+};
 
 /// @brief Checks if the Result is successful.
 /// @return bool True if the Result is successful, false otherwise.
