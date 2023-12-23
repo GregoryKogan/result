@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('classres_1_1Result.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classres_1_1Result-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">res::Result&lt; T, E &gt; Class Template Reference</div>  </div>
@@ -114,23 +114,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae62cbc23e0435b8da8674d22ae27b643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error of an unsuccessful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a>.  <a href="classres_1_1Result.html#ae62cbc23e0435b8da8674d22ae27b643">More...</a><br /></td></tr>
 <tr class="separator:ae62cbc23e0435b8da8674d22ae27b643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a994dfd7b95549db48f540f4a6d7d24b8"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#a994dfd7b95549db48f540f4a6d7d24b8">Ok</a> (const T &amp;value) -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt; T, E &gt;</td></tr>
-<tr class="memdesc:a994dfd7b95549db48f540f4a6d7d24b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> object containing a value.  <a href="classres_1_1Result.html#a994dfd7b95549db48f540f4a6d7d24b8">More...</a><br /></td></tr>
-<tr class="separator:a994dfd7b95549db48f540f4a6d7d24b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af23c1e04a472bab4c00e7c663392aa56"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#af23c1e04a472bab4c00e7c663392aa56">Ok</a> (T &amp;&amp;value) -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt; T, E &gt;</td></tr>
-<tr class="memdesc:af23c1e04a472bab4c00e7c663392aa56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analogous to <code><a class="el" href="classres_1_1Result.html#a994dfd7b95549db48f540f4a6d7d24b8" title="Creates a successful Result object containing a value.">Ok(const T &amp;value)</a></code> but for rvalue reference.  <a href="classres_1_1Result.html#af23c1e04a472bab4c00e7c663392aa56">More...</a><br /></td></tr>
-<tr class="separator:af23c1e04a472bab4c00e7c663392aa56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afba7c5d69e4942722533c8c65232d0a3"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#afba7c5d69e4942722533c8c65232d0a3">Ok</a> () noexcept -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt; std::monostate, E &gt;</td></tr>
-<tr class="memdesc:afba7c5d69e4942722533c8c65232d0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> object containing an empty value.  <a href="classres_1_1Result.html#afba7c5d69e4942722533c8c65232d0a3">More...</a><br /></td></tr>
-<tr class="separator:afba7c5d69e4942722533c8c65232d0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78e33a04a3f3b0689ebc1909b5dfb77a"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#a78e33a04a3f3b0689ebc1909b5dfb77a">Err</a> (const E &amp;error) -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt; T, E &gt;</td></tr>
-<tr class="memdesc:a78e33a04a3f3b0689ebc1909b5dfb77a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an unsuccessful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> object containing an error.  <a href="classres_1_1Result.html#a78e33a04a3f3b0689ebc1909b5dfb77a">More...</a><br /></td></tr>
-<tr class="separator:a78e33a04a3f3b0689ebc1909b5dfb77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b631a20b1b40d2c36e2504929aba8f1"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#a1b631a20b1b40d2c36e2504929aba8f1">Err</a> (E &amp;&amp;error) -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt; T, E &gt;</td></tr>
-<tr class="memdesc:a1b631a20b1b40d2c36e2504929aba8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analogous to <code><a class="el" href="classres_1_1Result.html#a78e33a04a3f3b0689ebc1909b5dfb77a" title="Creates an unsuccessful Result object containing an error.">Err(const E &amp;error)</a></code> but for rvalue reference.  <a href="classres_1_1Result.html#a1b631a20b1b40d2c36e2504929aba8f1">More...</a><br /></td></tr>
-<tr class="separator:a1b631a20b1b40d2c36e2504929aba8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:af3fa378cb2ff9c8e1a5b78142cdcfda5"><td class="memTemplParams" colspan="2"><a id="af3fa378cb2ff9c8e1a5b78142cdcfda5"></a>
+template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:af3fa378cb2ff9c8e1a5b78142cdcfda5"><td class="memTemplItemLeft" align="right" valign="top">struct&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Ok</b></td></tr>
+<tr class="separator:af3fa378cb2ff9c8e1a5b78142cdcfda5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21a6521124e8d107c44cc55f8e4d607"><td class="memTemplParams" colspan="2"><a id="af21a6521124e8d107c44cc55f8e4d607"></a>
+template&lt;typename E1 &gt; </td></tr>
+<tr class="memitem:af21a6521124e8d107c44cc55f8e4d607"><td class="memTemplItemLeft" align="right" valign="top">struct&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Err</b></td></tr>
+<tr class="separator:af21a6521124e8d107c44cc55f8e4d607"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, typename E&gt;<br />
@@ -145,93 +138,6 @@ class res::Result&lt; T, E &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a78e33a04a3f3b0689ebc1909b5dfb77a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78e33a04a3f3b0689ebc1909b5dfb77a">&#9670;&nbsp;</a></span>Err() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename E &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="classres_1_1Result.html">res::Result</a>&lt; T, E &gt;::Err </td>
-          <td>(</td>
-          <td class="paramtype">const E &amp;&#160;</td>
-          <td class="paramname"><em>error</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt;T, E&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an unsuccessful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> object containing an error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">error</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Although it's possible to create a <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> with an empty value, it's impossible to create it with an empty error. This is enforced by static_assert. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Result&lt;T, E&gt; </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Any</td><td>exception thrown during the initialization of the E value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1b631a20b1b40d2c36e2504929aba8f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b631a20b1b40d2c36e2504929aba8f1">&#9670;&nbsp;</a></span>Err() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename E &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="classres_1_1Result.html">res::Result</a>&lt; T, E &gt;::Err </td>
-          <td>(</td>
-          <td class="paramtype">E &amp;&amp;&#160;</td>
-          <td class="paramname"><em>error</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt;T, E&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Analogous to <code><a class="el" href="classres_1_1Result.html#a78e33a04a3f3b0689ebc1909b5dfb77a" title="Creates an unsuccessful Result object containing an error.">Err(const E &amp;error)</a></code> but for rvalue reference. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">error</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Result&lt;T, E&gt; </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Any</td><td>exception thrown during the initialization of the E value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aa33616d53b63aea7f3da728e9713f7f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa33616d53b63aea7f3da728e9713f7f9">&#9670;&nbsp;</a></span>is_err()</h2>
 
@@ -283,119 +189,6 @@ template&lt;typename T , typename E &gt; </div>
 
 <p>Checks if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool True if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="afba7c5d69e4942722533c8c65232d0a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afba7c5d69e4942722533c8c65232d0a3">&#9670;&nbsp;</a></span>Ok() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename E &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="classres_1_1Result.html">res::Result</a>&lt; T, E &gt;::Ok</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> object containing an empty value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Result&lt;std::monostate, E&gt; </dd></dl>
-
-</div>
-</div>
-<a id="a994dfd7b95549db48f540f4a6d7d24b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a994dfd7b95549db48f540f4a6d7d24b8">&#9670;&nbsp;</a></span>Ok() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename E &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="classres_1_1Result.html">res::Result</a>&lt; T, E &gt;::Ok </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt;T, E&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> object containing a value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Result&lt;T, E&gt; </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Any</td><td>exception thrown during the initialization of the T value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af23c1e04a472bab4c00e7c663392aa56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af23c1e04a472bab4c00e7c663392aa56">&#9670;&nbsp;</a></span>Ok() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename E &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="classres_1_1Result.html">res::Result</a>&lt; T, E &gt;::Ok </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="classres_1_1Result.html">Result</a>&lt;T, E&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Analogous to <code><a class="el" href="classres_1_1Result.html#a994dfd7b95549db48f540f4a6d7d24b8" title="Creates a successful Result object containing a value.">Ok(const T &amp;value)</a></code> but for rvalue reference. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Result&lt;T, E&gt; </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Any</td><td>exception thrown during the initialization of the T value. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

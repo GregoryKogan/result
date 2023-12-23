@@ -105,9 +105,9 @@ Usage</h1>
 <div class="line"> </div>
 <div class="line"><a class="code" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;</a> divide(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) {</div>
 <div class="line">  <span class="keywordflow">if</span> (b == 0) {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Result.html#a78e33a04a3f3b0689ebc1909b5dfb77a">res::Result&lt;int, std::string&gt;::Err</a>(<span class="stringliteral">&quot;Division by zero&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;::Err</a>(<span class="stringliteral">&quot;Division by zero&quot;</span>);</div>
 <div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Result.html#afba7c5d69e4942722533c8c65232d0a3">res::Result&lt;int, std::string&gt;::Ok</a>(a / b);</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;::Ok</a>(a / b);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -121,8 +121,6 @@ Usage</h1>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassres_1_1Result_html"><div class="ttname"><a href="classres_1_1Result.html">res::Result</a></div><div class="ttdoc">Result is a type that represents either success or failure.</div><div class="ttdef"><b>Definition:</b> result.h:25</div></div>
-<div class="ttc" id="aclassres_1_1Result_html_a78e33a04a3f3b0689ebc1909b5dfb77a"><div class="ttname"><a href="classres_1_1Result.html#a78e33a04a3f3b0689ebc1909b5dfb77a">res::Result::Err</a></div><div class="ttdeci">static auto Err(const E &amp;error) -&gt; Result&lt; T, E &gt;</div><div class="ttdoc">Creates an unsuccessful Result object containing an error.</div><div class="ttdef"><b>Definition:</b> result.h:91</div></div>
-<div class="ttc" id="aclassres_1_1Result_html_afba7c5d69e4942722533c8c65232d0a3"><div class="ttname"><a href="classres_1_1Result.html#afba7c5d69e4942722533c8c65232d0a3">res::Result::Ok</a></div><div class="ttdeci">static auto Ok() noexcept -&gt; Result&lt; std::monostate, E &gt;</div><div class="ttdoc">Creates a successful Result object containing an empty value.</div><div class="ttdef"><b>Definition:</b> result.h:79</div></div>
 <div class="ttc" id="aresult_8h_html"><div class="ttname"><a href="result_8h.html">result.h</a></div><div class="ttdoc">result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propag...</div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
