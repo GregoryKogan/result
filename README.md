@@ -1,5 +1,9 @@
 # result-cpp
 
+![GitHub License](https://img.shields.io/github/license/GregoryKogan/result-cpp)
+![Github Tests workflow](https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/tests.yml?logo=github&label=tests)
+![Github Tests workflow](https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/docs.yml?logo=files&logoColor=f5f5f5&label=docs)
+
 Result-CPP is a C++ library that provides a `Result<T, E>` type, which can be used to return and propagate errors. It's inspired by Rust's `std::Result` type.
 
 ## Features
@@ -17,9 +21,9 @@ Result-CPP is a C++ library that provides a `Result<T, E>` type, which can be us
 
 res::Result<int, std::string> divide(int a, int b) {
   if (b == 0) {
-    return res::Result<int, std::string>::Err("Division by zero");
+    return res::Err(std::string("Division by zero"));
   } else {
-    return res::Result<int, std::string>::Ok(a / b);
+    return res::Ok(a / b);
   }
 }
 
