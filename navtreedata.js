@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "C++ Result", "index.html", [
+  [ "Result C++", "index.html", [
     [ "result-cpp", "index.html", [
       [ "Features", "index.html#autotoc_md1", null ],
       [ "Usage", "index.html#autotoc_md2", null ]
