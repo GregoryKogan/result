@@ -1,4 +1,5 @@
 build
-docs
+docs/*
+!docs/Doxyfile
 .vscode
 .DS_Store
