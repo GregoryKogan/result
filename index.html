@@ -89,7 +89,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">result-cpp </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> Result-CPP is a C++ library that provides a <code>Result&lt;T, E&gt;</code> type, which can be used to return and propagate errors. It's inspired by Rust's <code>std::Result</code> type.</p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <img src="https://img.shields.io/github/license/GregoryKogan/result-cpp" alt="GitHub License" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/tests.yml?logo=github&amp;label=tests" alt="Github Tests workflow" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/docs.yml?logo=files&amp;logoColor=f5f5f5&amp;label=docs" alt="Github Tests workflow" class="inline"/></p>
+<p>Result-CPP is a C++ library that provides a <code>Result&lt;T, E&gt;</code> type, which can be used to return and propagate errors. It's inspired by Rust's <code>std::Result</code> type.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Features</h1>
 <ul>
@@ -105,9 +106,9 @@ Usage</h1>
 <div class="line"> </div>
 <div class="line"><a class="code" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;</a> divide(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) {</div>
 <div class="line">  <span class="keywordflow">if</span> (b == 0) {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;::Err</a>(<span class="stringliteral">&quot;Division by zero&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Err.html">res::Err</a>(std::string(<span class="stringliteral">&quot;Division by zero&quot;</span>));</div>
 <div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;::Ok</a>(a / b);</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classres_1_1Ok.html">res::Ok</a>(a / b);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -120,6 +121,8 @@ Usage</h1>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Error: &quot;</span> &lt;&lt; result.unwrap_err() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
+<div class="ttc" id="aclassres_1_1Err_html"><div class="ttname"><a href="classres_1_1Err.html">res::Err</a></div><div class="ttdoc">Err object represents an unsuccessful outcome and can be converted to a Result.</div><div class="ttdef"><b>Definition:</b> result.h:73</div></div>
+<div class="ttc" id="aclassres_1_1Ok_html"><div class="ttname"><a href="classres_1_1Ok.html">res::Ok</a></div><div class="ttdoc">Ok object represents a successful outcome and can be converted to a Result.</div><div class="ttdef"><b>Definition:</b> result.h:48</div></div>
 <div class="ttc" id="aclassres_1_1Result_html"><div class="ttname"><a href="classres_1_1Result.html">res::Result</a></div><div class="ttdoc">Result is a type that represents either success or failure.</div><div class="ttdef"><b>Definition:</b> result.h:25</div></div>
 <div class="ttc" id="aresult_8h_html"><div class="ttname"><a href="result_8h.html">result.h</a></div><div class="ttdoc">result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propag...</div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
