@@ -15,7 +15,7 @@ jobs:
           submodules: recursive
 
       - name: Install Doxygen and Graphviz
-        run: sudo apt-add-repository universe && sudo apt-get update && sudo apt-get install doxygen graphviz -y
+        run: sudo apt-get install doxygen graphviz -y
         shell: bash
 
       - name: Generate Doxygen Docs
