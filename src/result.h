@@ -40,6 +40,25 @@ public:
 
   [[nodiscard]] auto unwrap() const -> T;
   [[nodiscard]] auto unwrap_err() const -> E;
+
+  /// @name Accesses the value of a successful Result.
+  /// @return Pointer or reference to the value.
+  ///@{
+
+  /// @brief Returns a pointer to the value if the Result is successful, nullptr otherwise.
+  constexpr auto operator->() const -> const T * { return &std::get<ContentType::Value>(content_); }
+  /// @brief Returns a pointer to the value if the Result is successful, nullptr otherwise.
+  constexpr auto operator->() -> T * { return &std::get<ContentType::Value>(content_); }
+  /// @brief Returns a reference to the value if the Result is successful, throws otherwise.
+  constexpr auto operator*() const & -> const T & { return std::get<ContentType::Value>(content_); }
+  /// @brief Returns a reference to the value if the Result is successful, throws otherwise.
+  constexpr auto operator*() & -> T & { return std::get<ContentType::Value>(content_); }
+  /// @brief Returns a reference to the value if the Result is successful, throws otherwise.
+  constexpr auto operator*() const && -> const T && { return std::get<ContentType::Value>(content_); }
+  /// @brief Returns a reference to the value if the Result is successful, throws otherwise.
+  constexpr auto operator*() && -> T && { return std::get<ContentType::Value>(content_); }
+
+  ///@}
 };
 
 /// @brief Ok object represents a successful outcome and can be converted to a Result.
