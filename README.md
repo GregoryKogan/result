@@ -48,6 +48,8 @@ int main() {
 }
 ```
 
+You can find many other use cases within [/tests](https://github.com/GregoryKogan/result-cpp/tree/main/tests) directory
+
 ## Contributing
 
 I'm not planning to write any more features for this library, but I will gladly accept any pull requests that add new features or fix bugs.
