@@ -20,7 +20,7 @@ jobs:
           doxyfile-path: "docs/Doxyfile"
 
       - name: Create .nojekyll (ensures pages with underscores work on gh pages)
-        run: touch docs/html/.nojekyll
+        run: sudo touch docs/html/.nojekyll
         shell: bash
 
       - name: Deploy to GitHub Pages
