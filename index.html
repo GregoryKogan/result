@@ -136,16 +136,20 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_README"></a> <img src="https://img.shields.io/github/license/GregoryKogan/result-cpp" alt="GitHub License" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/tests.yml?logo=github&amp;label=tests" alt="Github Tests workflow" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/docs.yml?logo=files&amp;logoColor=f5f5f5&amp;label=docs" alt="Github Tests workflow" class="inline"/></p>
-<p >Result-CPP is a C++ library that provides a <code>Result&lt;T, E&gt;</code> type, which can be used to return and propagate errors. It's inspired by Rust's <code>std::Result</code> type.</p>
+<p >Result-CPP is a C++ library that provides a <code>Result&lt;T, E&gt;</code> type, which can be used to return and propagate errors. It's inspired by Rust's <code>std::Result</code> type. It's a header-only library, so you can just copy the <code><a class="el" href="result_8h.html" title="result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propag...">result.h</a></code> file into your project and start using it. Or you can use it as a git submodule. Or fetch it with <a href="https://cmake.org/cmake/help/latest/module/FetchContent.html">FetchContent</a> if you're using CMake.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
+Documentation</h1>
+<p >You can find the documentation <a href="https://gregorykogan.github.io/result-cpp/">here</a>.</p>
+<p >It's auto generated with <a href="https://www.doxygen.nl/index.html">Doxygen</a> by GitHub Actions and hosted on GitHub Pages. It uses the <a href="https://jothepro.github.io/doxygen-awesome-css/">Doxygen Awesome</a> theme, that I customized to use Tokyo Night palette.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Features</h1>
 <ul>
 <li><code>Result&lt;T, E&gt;</code> type for returning and propagating errors.</li>
 <li><code>Ok</code> and <code>Err</code> static methods for creating successful and unsuccessful <code>Result</code> objects respectively.</li>
 <li><code>is_ok</code> and <code>is_err</code> methods for checking if the <code>Result</code> is successful or unsuccessful.</li>
-<li><code>unwrap</code> and <code>unwrap_err</code> methods for extracting the value or error from the <code>Result</code>.</li>
+<li><code>unwrap</code>, <code>unwrap_or</code> and <code>unwrap_err</code> methods for extracting the value or error from the <code>Result</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Usage</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="result_8h.html">result.h</a>&quot;</span></div>
@@ -171,7 +175,10 @@ Usage</h1>
 <div class="ttc" id="aclassres_1_1Ok_html"><div class="ttname"><a href="classres_1_1Ok.html">res::Ok</a></div><div class="ttdoc">Ok object represents a successful outcome and can be converted to a Result.</div><div class="ttdef"><b>Definition:</b> result.h:71</div></div>
 <div class="ttc" id="aclassres_1_1Result_html"><div class="ttname"><a href="classres_1_1Result.html">res::Result</a></div><div class="ttdoc">Result is a type that represents either success or failure.</div><div class="ttdef"><b>Definition:</b> result.h:25</div></div>
 <div class="ttc" id="aresult_8h_html"><div class="ttname"><a href="result_8h.html">result.h</a></div><div class="ttdoc">result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propag...</div></div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Contributing</h1>
+<p >I'm not planning to write any more features for this library, but I will gladly accept any pull requests that add new features or fix bugs. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
