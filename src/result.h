@@ -41,6 +41,9 @@ public:
   [[nodiscard]] auto unwrap() const -> T;
   [[nodiscard]] auto unwrap_err() const -> E;
 
+  /// @brief `true` if the Result is successful, `false` otherwise.
+  constexpr explicit operator bool() const noexcept { return is_ok(); }
+
   /// @name Accesses the value of a successful Result.
   /// @return Pointer or reference to the value.
   ///@{
