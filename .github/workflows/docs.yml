@@ -14,13 +14,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install Doxygen and Graphviz
-        run: sudo apt-get install doxygen graphviz -y
-        shell: bash
-
       - name: Generate Doxygen Docs
-        run: doxygen docs/Doxyfile
-        shell: bash
+        uses: mattnotmitt/doxygen-action@v1.9.5
+        with:
+          doxyfile-path: "docs/Doxyfile"
 
       - name: Create .nojekyll (ensures pages with underscores work on gh pages)
         run: touch docs/html/.nojekyll
