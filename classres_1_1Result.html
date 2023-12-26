@@ -156,9 +156,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aacd3069c9335ee26efb96ac814199688"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#aacd3069c9335ee26efb96ac814199688">unwrap</a> () const -&gt; T</td></tr>
 <tr class="memdesc:aacd3069c9335ee26efb96ac814199688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a>.  <a href="classres_1_1Result.html#aacd3069c9335ee26efb96ac814199688">More...</a><br /></td></tr>
 <tr class="separator:aacd3069c9335ee26efb96ac814199688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff05ca6bf1244c8632e58007bb35f84"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#acff05ca6bf1244c8632e58007bb35f84">unwrap_or</a> (const T &amp;default_value) const noexcept -&gt; T</td></tr>
+<tr class="memdesc:acff05ca6bf1244c8632e58007bb35f84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> or a default value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is unsuccessful.  <a href="classres_1_1Result.html#acff05ca6bf1244c8632e58007bb35f84">More...</a><br /></td></tr>
+<tr class="separator:acff05ca6bf1244c8632e58007bb35f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae62cbc23e0435b8da8674d22ae27b643"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html#ae62cbc23e0435b8da8674d22ae27b643">unwrap_err</a> () const -&gt; E</td></tr>
 <tr class="memdesc:ae62cbc23e0435b8da8674d22ae27b643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error of an unsuccessful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a>.  <a href="classres_1_1Result.html#ae62cbc23e0435b8da8674d22ae27b643">More...</a><br /></td></tr>
 <tr class="separator:ae62cbc23e0435b8da8674d22ae27b643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d36ea9a547135154ddf9f8380620914"><td class="memItemLeft" align="right" valign="top"><a id="a4d36ea9a547135154ddf9f8380620914" name="a4d36ea9a547135154ddf9f8380620914"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const noexcept</td></tr>
+<tr class="memdesc:a4d36ea9a547135154ddf9f8380620914"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>true</code> if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, <code>false</code> otherwise. <br /></td></tr>
+<tr class="separator:a4d36ea9a547135154ddf9f8380620914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Accesses the value of a successful Result.</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><dl class="section return"><dt>Returns</dt><dd>Pointer or reference to the value. </dd></dl>
+</div></td></tr>
+<tr class="memitem:a2e7eaa369b1454f19bfc3d4f86915319"><td class="memItemLeft" align="right" valign="top"><a id="a2e7eaa369b1454f19bfc3d4f86915319" name="a2e7eaa369b1454f19bfc3d4f86915319"></a>
+constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () const -&gt; const T *</td></tr>
+<tr class="memdesc:a2e7eaa369b1454f19bfc3d4f86915319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, nullptr otherwise. <br /></td></tr>
+<tr class="separator:a2e7eaa369b1454f19bfc3d4f86915319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a079ff259ddb9fc666b2b07ceb4f7356b"><td class="memItemLeft" align="right" valign="top"><a id="a079ff259ddb9fc666b2b07ceb4f7356b" name="a079ff259ddb9fc666b2b07ceb4f7356b"></a>
+constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () -&gt; T *</td></tr>
+<tr class="memdesc:a079ff259ddb9fc666b2b07ceb4f7356b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, nullptr otherwise. <br /></td></tr>
+<tr class="separator:a079ff259ddb9fc666b2b07ceb4f7356b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73befde53f79ffe648fc18968e21f09"><td class="memItemLeft" align="right" valign="top"><a id="ae73befde53f79ffe648fc18968e21f09" name="ae73befde53f79ffe648fc18968e21f09"></a>
+constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const &amp;-&gt; const T &amp;</td></tr>
+<tr class="memdesc:ae73befde53f79ffe648fc18968e21f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, throws otherwise. <br /></td></tr>
+<tr class="separator:ae73befde53f79ffe648fc18968e21f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3589917ac7d6f4222c7a8a3a1b18a36"><td class="memItemLeft" align="right" valign="top"><a id="ab3589917ac7d6f4222c7a8a3a1b18a36" name="ab3589917ac7d6f4222c7a8a3a1b18a36"></a>
+constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () &amp;-&gt; T &amp;</td></tr>
+<tr class="memdesc:ab3589917ac7d6f4222c7a8a3a1b18a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, throws otherwise. <br /></td></tr>
+<tr class="separator:ab3589917ac7d6f4222c7a8a3a1b18a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2b49d11ab7e081f820a89f4a2925576"><td class="memItemLeft" align="right" valign="top"><a id="ad2b49d11ab7e081f820a89f4a2925576" name="ad2b49d11ab7e081f820a89f4a2925576"></a>
+constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const &amp;&amp;-&gt; const T &amp;&amp;</td></tr>
+<tr class="memdesc:ad2b49d11ab7e081f820a89f4a2925576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, throws otherwise. <br /></td></tr>
+<tr class="separator:ad2b49d11ab7e081f820a89f4a2925576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69cc780d0613d3b7889bee91d876e883"><td class="memItemLeft" align="right" valign="top"><a id="a69cc780d0613d3b7889bee91d876e883" name="a69cc780d0613d3b7889bee91d876e883"></a>
+constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () &amp;&amp;-&gt; T &amp;&amp;</td></tr>
+<tr class="memdesc:a69cc780d0613d3b7889bee91d876e883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful, throws otherwise. <br /></td></tr>
+<tr class="separator:a69cc780d0613d3b7889bee91d876e883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -297,6 +331,49 @@ template&lt;typename T , typename E &gt; </div>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acff05ca6bf1244c8632e58007bb35f84" name="acff05ca6bf1244c8632e58007bb35f84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff05ca6bf1244c8632e58007bb35f84">&#9670;&#160;</a></span>unwrap_or()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classres_1_1Result.html">res::Result</a>&lt; T, E &gt;::unwrap_or </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>default_value</em></td><td>)</td>
+          <td> const -&gt; T</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the value of a successful <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> or a default value if the <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a> is unsuccessful. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+    <tr><td class="paramname">E</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">default_value</td><td></td></tr>
   </table>
   </dd>
 </dl>
