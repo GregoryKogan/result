@@ -39,6 +39,7 @@ public:
   [[nodiscard]] auto is_err() const noexcept -> bool;
 
   [[nodiscard]] auto unwrap() const -> T;
+  [[nodiscard]] auto unwrap_or(const T &default_value) const noexcept -> T;
   [[nodiscard]] auto unwrap_err() const -> E;
 
   /// @brief `true` if the Result is successful, `false` otherwise.
@@ -135,6 +136,17 @@ template <typename T, typename E> inline auto Result<T, E>::unwrap() const -> T 
   if (is_err()) { throw std::runtime_error("Called unwrap on an Err value"); }
   if constexpr (std::is_same_v<T, std::monostate>) { throw std::runtime_error("Called unwrap on an empty value"); }
   return std::get<ContentType::Value>(content_);
+}
+
+/// @brief Returns the value of a successful Result or a default value if the Result is unsuccessful.
+/// @tparam T
+/// @tparam E
+/// @param default_value
+template <typename T, typename E> inline auto Result<T, E>::unwrap_or(const T &default_value) const noexcept -> T {
+  try {
+    if (is_ok()) { return unwrap(); }
+  } catch (const std::exception &e) { return default_value; }
+  return default_value;
 }
 
 /// @brief Returns the error of an unsuccessful Result.

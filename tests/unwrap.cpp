@@ -7,6 +7,7 @@ TEST(Unwrap, Ok) {
   res::Result<int, std::string> result = res::Ok(value);
 
   EXPECT_EQ(result.unwrap(), value);
+  EXPECT_EQ(result.unwrap_or(0), value);
   EXPECT_THROW(auto res = result.unwrap_err(), std::runtime_error);
 }
 
@@ -16,4 +17,5 @@ TEST(Unwrap, Err) {
 
   EXPECT_EQ(result.unwrap_err(), value);
   EXPECT_THROW(auto res = result.unwrap(), std::runtime_error);
+  EXPECT_EQ(result.unwrap_or(0), 0);
 }
