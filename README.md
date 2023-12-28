@@ -13,6 +13,8 @@ Or fetch it with [FetchContent](https://cmake.org/cmake/help/latest/module/Fetch
 
 You can find the documentation [here](https://gregorykogan.github.io/result-cpp/).
 
+And the project's repo [here](https://github.com/GregoryKogan/result-cpp).
+
 It's auto generated with [Doxygen](https://www.doxygen.nl/index.html) by GitHub Actions and hosted on GitHub Pages.
 It uses the [Doxygen Awesome](https://jothepro.github.io/doxygen-awesome-css/) theme, that I customized to use Tokyo Night palette.
 
