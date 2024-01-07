@@ -37,15 +37,11 @@ public:
 };
 
 template <typename E> template <typename T> inline err<E>::operator result<T, E>() const {
-  auto res = result<T, E>();
-  res.make_unsuccessful(error_);
-  return res;
+  return result<T, E>(result<T, E>::Unsuccessful::UNSUCCESSFUL, error_);
 }
 
 template <typename E> inline err<E>::operator result<void, E>() const {
-  auto res = result<void, E>();
-  res.make_unsuccessful(error_);
-  return res;
+  return result<void, E>(result<void, E>::Unsuccessful::UNSUCCESSFUL, error_);
 }
 
 } // namespace res
@@ -72,15 +68,11 @@ public:
 };
 
 template <typename T> template <typename E> inline ok<T>::operator result<T, E>() const {
-  auto res = result<T, E>();
-  res.make_successful(value_);
-  return res;
+  return result<T, E>(result<T, E>::Successful::SUCCESSFUL, value_);
 }
 
 template <typename T> template <typename E> inline ok<T>::operator result<void, E>() const {
-  auto res = result<void, E>();
-  res.make_successful();
-  return res;
+  return result<void, E>(result<void, E>::Successful::SUCCESSFUL);
 }
 
 } // namespace res
@@ -97,11 +89,15 @@ template <typename T, typename E> class result {
   static_assert(!std::is_same_v<T, void>, "T (value type) must not be void");
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 
-  bool successful_ = false;
+  bool successful_;
   T value_;
   E error_;
 
-  result() = default;
+  // Named constructors
+  enum Successful { SUCCESSFUL };
+  enum Unsuccessful { UNSUCCESSFUL };
+  result(Successful successful, T value) : successful_(true), value_(std::move(value)) {}
+  result(Unsuccessful unsuccessful, E error) : successful_(false), error_(std::move(error)) {}
 
   auto make_successful(T value) -> void {
     successful_ = true;
@@ -139,16 +135,14 @@ public:
 template <typename E> class result<void, E> {
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 
-  bool successful_ = false;
+  bool successful_;
   E error_;
 
-  result() = default;
-
-  auto make_successful() -> void { successful_ = true; }
-  auto make_unsuccessful(E error) -> void {
-    successful_ = false;
-    error_ = std::move(error);
-  }
+  // Named constructors
+  enum Successful { SUCCESSFUL };
+  enum Unsuccessful { UNSUCCESSFUL };
+  explicit result(Successful successful) : successful_(true) {}
+  result(Unsuccessful unsuccessful, E error) : successful_(false), error_(std::move(error)) {}
 
   template <typename U> friend class ok;
   template <typename U> friend class err;

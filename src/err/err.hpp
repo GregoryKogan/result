@@ -20,15 +20,11 @@ public:
 };
 
 template <typename E> template <typename T> inline err<E>::operator result<T, E>() const {
-  auto res = result<T, E>();
-  res.make_unsuccessful(error_);
-  return res;
+  return result<T, E>(result<T, E>::Unsuccessful::UNSUCCESSFUL, error_);
 }
 
 template <typename E> inline err<E>::operator result<void, E>() const {
-  auto res = result<void, E>();
-  res.make_unsuccessful(error_);
-  return res;
+  return result<void, E>(result<void, E>::Unsuccessful::UNSUCCESSFUL, error_);
 }
 
 } // namespace res

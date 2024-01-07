@@ -18,11 +18,15 @@ template <typename T, typename E> class result {
   static_assert(!std::is_same_v<T, void>, "T (value type) must not be void");
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 
-  bool successful_ = false;
+  bool successful_;
   T value_;
   E error_;
 
-  result() = default;
+  // Simulate named constructors
+  enum Successful { SUCCESSFUL };
+  enum Unsuccessful { UNSUCCESSFUL };
+  result(Successful successful, T value) : successful_(true), value_(std::move(value)) {}
+  result(Unsuccessful unsuccessful, E error) : successful_(false), error_(std::move(error)) {}
 
   auto make_successful(T value) -> void {
     successful_ = true;
@@ -60,16 +64,14 @@ public:
 template <typename E> class result<void, E> {
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 
-  bool successful_ = false;
+  bool successful_;
   E error_;
 
-  result() = default;
-
-  auto make_successful() -> void { successful_ = true; }
-  auto make_unsuccessful(E error) -> void {
-    successful_ = false;
-    error_ = std::move(error);
-  }
+  // Simulate named constructors
+  enum Successful { SUCCESSFUL };
+  enum Unsuccessful { UNSUCCESSFUL };
+  explicit result(Successful successful) : successful_(true) {}
+  result(Unsuccessful unsuccessful, E error) : successful_(false), error_(std::move(error)) {}
 
   template <typename U> friend class ok;
   template <typename U> friend class err;

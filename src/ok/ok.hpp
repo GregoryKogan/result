@@ -22,15 +22,11 @@ public:
 };
 
 template <typename T> template <typename E> inline ok<T>::operator result<T, E>() const {
-  auto res = result<T, E>();
-  res.make_successful(value_);
-  return res;
+  return result<T, E>(result<T, E>::Successful::SUCCESSFUL, value_);
 }
 
 template <typename T> template <typename E> inline ok<T>::operator result<void, E>() const {
-  auto res = result<void, E>();
-  res.make_successful();
-  return res;
+  return result<void, E>(result<void, E>::Successful::SUCCESSFUL);
 }
 
 } // namespace res
