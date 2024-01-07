@@ -5,6 +5,9 @@ namespace res {
 template <typename T, typename E> class result;
 template <typename E> class result<void, E>;
 
+/// @brief Err object represents an unsuccessful outcome and can be implicitly converted to a result.
+/// @details Err object holds an error of type E. Err object can't be empty, E must not be std::monostate.
+/// @tparam E Type of the error.
 template <typename E> class err {
   E error_;
 

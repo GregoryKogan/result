@@ -1,11 +1,15 @@
-/// result is a C++ library that provides a Result<T, E> type, which can be used to return and propagate errors. It's
-/// inspired by Rust's std::Result type.
+/// @file
+/// @brief result is a C++ library that provides a Result<T, E> type, which can be used to return and propagate
+/// errors. It's inspired by Rust's std::Result type.
 ///
-/// author: GregoryKogan
-/// My github page: https://github.com/GregoryKogan
-/// version: 0.0.0
-/// date: 2023, December 21
+/// This file contains the declaration of the Result class template.
+/// @author GregoryKogan
+/// @version 0.0.1
+/// @date 2023, December 21
+/// @par License
 /// This software is released under the GNU GENERAL PUBLIC LICENSE Version 3.
+/// @par Contact
+/// My github page: https://github.com/GregoryKogan
 
 #ifndef RESULT_LIB
 #define RESULT_LIB
@@ -18,6 +22,9 @@ namespace res {
 template <typename T, typename E> class result;
 template <typename E> class result<void, E>;
 
+/// @brief Err object represents an unsuccessful outcome and can be implicitly converted to a result.
+/// @details Err object holds an error of type E. Err object can't be empty, E must not be std::monostate.
+/// @tparam E Type of the error.
 template <typename E> class err {
   E error_;
 
@@ -41,6 +48,9 @@ namespace res {
 template <typename T, typename E> class result;
 template <typename E> class result<void, E>;
 
+/// @brief Ok object represents a successful outcome and can be implicitly converted to a result.
+/// @details Ok object holds a value of type T. Empty Ok object can be created if T is std::monostate.
+/// @tparam T Type of the value. Defaults to std::monostate.
 template <typename T = std::monostate> class ok {
   T value_;
 
@@ -62,6 +72,12 @@ template <typename T> template <typename E> inline ok<T>::operator result<void, 
 
 namespace res {
 
+/// @brief `result` is a type that represents either success or failure.
+///
+/// result<T, E> is the type used for returning and propagating errors. It holds either a successful value of type T or
+/// an error of type E.
+/// @tparam T
+/// @tparam E
 template <typename T, typename E> class result {
   static_assert(!std::is_same_v<T, void>, "T (value type) must not be void");
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
@@ -85,7 +101,7 @@ public:
   [[nodiscard]] auto error() const -> const E &;
 };
 
-// result class specialization for void value type
+/// @brief `result` class specialization for void value type.
 template <typename E> class result<void, E> {
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 

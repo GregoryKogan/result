@@ -8,6 +8,12 @@
 
 namespace res {
 
+/// @brief `result` is a type that represents either success or failure.
+///
+/// result<T, E> is the type used for returning and propagating errors. It holds either a successful value of type T or
+/// an error of type E.
+/// @tparam T
+/// @tparam E
 template <typename T, typename E> class result {
   static_assert(!std::is_same_v<T, void>, "T (value type) must not be void");
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
@@ -31,7 +37,7 @@ public:
   [[nodiscard]] auto error() const -> const E &;
 };
 
-// result class specialization for void value type
+/// @brief `result` class specialization for void value type.
 template <typename E> class result<void, E> {
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 

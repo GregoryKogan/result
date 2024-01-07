@@ -7,6 +7,9 @@ namespace res {
 template <typename T, typename E> class result;
 template <typename E> class result<void, E>;
 
+/// @brief Ok object represents a successful outcome and can be implicitly converted to a result.
+/// @details Ok object holds a value of type T. Empty Ok object can be created if T is std::monostate.
+/// @tparam T Type of the value. Defaults to std::monostate.
 template <typename T = std::monostate> class ok {
   T value_;
 
