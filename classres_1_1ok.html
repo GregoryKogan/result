@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11" />
     <meta name="generator" content="Doxygen 1.9.5" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Result C++: Class Members - Functions</title>
+    <title>result: res::ok&lt; T &gt; Class Template Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -60,12 +60,12 @@
               <tr id="projectrow">
                 <td id="projectalign">
                   <div id="projectname">
-                    Result C++<span
+                    result<span
                       id="projectnumber"
                       >&#160;0.0.1</span
                     >
                   </div>
-                  <div id="projectbrief">A modern C++ Result&lt;T, E&gt; type inspired by Rust</div>
+                  <div id="projectbrief">A C++ result&lt;T, E&gt; type inspired by Rust</div>
                 </td>
               </tr>
             </tbody>
@@ -106,7 +106,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('functions_func.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classres_1_1ok.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -131,25 +131,51 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </div>
 </div>
 
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classres_1_1ok-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">res::ok&lt; T &gt; Class Template Reference</div></div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>Err()&#160;:&#160;<a class="el" href="classres_1_1Err.html#ac4633e3057ea869036b31112e8649ecc">res::Err&lt; E &gt;</a></li>
-<li>is_err()&#160;:&#160;<a class="el" href="classres_1_1Result.html#aa33616d53b63aea7f3da728e9713f7f9">res::Result&lt; T, E &gt;</a></li>
-<li>is_ok()&#160;:&#160;<a class="el" href="classres_1_1Result.html#a664f30279bdd1c81f7a170bf99c20a30">res::Result&lt; T, E &gt;</a></li>
-<li>Ok()&#160;:&#160;<a class="el" href="classres_1_1Ok.html#aa4d6e6dacbe21d4e291efc3c08e0045b">res::Ok&lt; T &gt;</a></li>
-<li>operator bool()&#160;:&#160;<a class="el" href="classres_1_1Result.html#a4d36ea9a547135154ddf9f8380620914">res::Result&lt; T, E &gt;</a></li>
-<li>operator Result&lt; T, E &gt;()&#160;:&#160;<a class="el" href="classres_1_1Err.html#ab49f16277322b7085881fa2781a16cc4">res::Err&lt; E &gt;</a>, <a class="el" href="classres_1_1Ok.html#af1ef17effc3000b44c0b2fb42be0abbc">res::Ok&lt; T &gt;</a></li>
-<li>operator*()&#160;:&#160;<a class="el" href="classres_1_1Result.html#ae73befde53f79ffe648fc18968e21f09">res::Result&lt; T, E &gt;</a></li>
-<li>operator-&gt;()&#160;:&#160;<a class="el" href="classres_1_1Result.html#a2e7eaa369b1454f19bfc3d4f86915319">res::Result&lt; T, E &gt;</a></li>
-<li>unwrap()&#160;:&#160;<a class="el" href="classres_1_1Result.html#aacd3069c9335ee26efb96ac814199688">res::Result&lt; T, E &gt;</a></li>
-<li>unwrap_err()&#160;:&#160;<a class="el" href="classres_1_1Result.html#ae62cbc23e0435b8da8674d22ae27b643">res::Result&lt; T, E &gt;</a></li>
-<li>unwrap_or()&#160;:&#160;<a class="el" href="classres_1_1Result.html#acff05ca6bf1244c8632e58007bb35f84">res::Result&lt; T, E &gt;</a></li>
+
+<p>Ok object represents a successful outcome and can be implicitly converted to a result.  
+ <a href="classres_1_1ok.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="result_8h_source.html">result.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9ec117929c95f4e6f79ef5beea4b0962"><td class="memItemLeft" align="right" valign="top"><a id="a9ec117929c95f4e6f79ef5beea4b0962" name="a9ec117929c95f4e6f79ef5beea4b0962"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ok</b> (const T &amp;value)</td></tr>
+<tr class="separator:a9ec117929c95f4e6f79ef5beea4b0962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73359c086f8b1b75e31bfd2199385fcc"><td class="memTemplParams" colspan="2"><a id="a73359c086f8b1b75e31bfd2199385fcc" name="a73359c086f8b1b75e31bfd2199385fcc"></a>
+template&lt;typename E &gt; </td></tr>
+<tr class="memitem:a73359c086f8b1b75e31bfd2199385fcc"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator result&lt; T, E &gt;</b> () const</td></tr>
+<tr class="separator:a73359c086f8b1b75e31bfd2199385fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf238909a298ff019e31cb4bf03f6d1"><td class="memTemplParams" colspan="2"><a id="a1bf238909a298ff019e31cb4bf03f6d1" name="a1bf238909a298ff019e31cb4bf03f6d1"></a>
+template&lt;typename E &gt; </td></tr>
+<tr class="memitem:a1bf238909a298ff019e31cb4bf03f6d1"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator result&lt; void, E &gt;</b> () const</td></tr>
+<tr class="separator:a1bf238909a298ff019e31cb4bf03f6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T = std::monostate&gt;<br />
+class res::ok&lt; T &gt;</div><p >Ok object represents a successful outcome and can be implicitly converted to a result. </p>
+<p >Ok object holds a value of type T. Empty Ok object can be created if T is std::monostate. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the value. Defaults to std::monostate. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="result_8h_source.html">result.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>res</b></li><li class="navelem"><a class="el" href="classres_1_1ok.html">ok</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

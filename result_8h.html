@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11" />
     <meta name="generator" content="Doxygen 1.9.5" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Result C++: src/result.h File Reference</title>
+    <title>result: result.h File Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -60,12 +60,12 @@
               <tr id="projectrow">
                 <td id="projectalign">
                   <div id="projectname">
-                    Result C++<span
+                    result<span
                       id="projectnumber"
                       >&#160;0.0.1</span
                     >
                   </div>
-                  <div id="projectbrief">A modern C++ Result&lt;T, E&gt; type inspired by Rust</div>
+                  <div id="projectbrief">A C++ result&lt;T, E&gt; type inspired by Rust</div>
                 </td>
               </tr>
             </tbody>
@@ -138,27 +138,31 @@ $(document).ready(function(){initNavTree('result_8h.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 
-<p>result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propagate errors. It's inspired by Rust's std::Result type.  
+<p>result is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propagate errors. It's inspired by Rust's std::Result type.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;variant&gt;</code><br />
 </div>
 <p><a href="result_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Result.html">res::Result&lt; T, E &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a></code> is a type that represents either success or failure.  <a href="classres_1_1Result.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1err.html">res::err&lt; E &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Err object represents an unsuccessful outcome and can be implicitly converted to a result.  <a href="classres_1_1err.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Ok.html">res::Ok&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classres_1_1Ok.html" title="Ok object represents a successful outcome and can be converted to a Result.">Ok</a> object represents a successful outcome and can be converted to a <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a>.  <a href="classres_1_1Ok.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1ok.html">res::ok&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ok object represents a successful outcome and can be implicitly converted to a result.  <a href="classres_1_1ok.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1Err.html">res::Err&lt; E &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classres_1_1Err.html" title="Err object represents an unsuccessful outcome and can be converted to a Result.">Err</a> object represents an unsuccessful outcome and can be converted to a <a class="el" href="classres_1_1Result.html" title="Result is a type that represents either success or failure.">Result</a>.  <a href="classres_1_1Err.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>result</code> is a type that represents either success or failure.  <a href="classres_1_1result.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classres_1_1result_3_01void_00_01E_01_4.html">res::result&lt; void, E &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>result</code> class specialization for void value type.  <a href="classres_1_1result_3_01void_00_01E_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propagate errors. It's inspired by Rust's std::Result type. </p>
+<div class="textblock"><p >result is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propagate errors. It's inspired by Rust's std::Result type. </p>
 <p >This file contains the declaration of the Result class template. </p><dl class="section author"><dt>Author</dt><dd>GregoryKogan </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023, December 21 </dd></dl>
@@ -169,7 +173,7 @@ Classes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="result_8h.html">result.h</a></li>
+    <li class="navelem"><a class="el" href="result_8h.html">result.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

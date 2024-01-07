@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11" />
     <meta name="generator" content="Doxygen 1.9.5" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Result C++: Member List</title>
+    <title>result: Member List</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -60,12 +60,12 @@
               <tr id="projectrow">
                 <td id="projectalign">
                   <div id="projectname">
-                    Result C++<span
+                    result<span
                       id="projectnumber"
                       >&#160;0.0.1</span
                     >
                   </div>
-                  <div id="projectbrief">A modern C++ Result&lt;T, E&gt; type inspired by Rust</div>
+                  <div id="projectbrief">A C++ result&lt;T, E&gt; type inspired by Rust</div>
                 </td>
               </tr>
             </tbody>
@@ -106,7 +106,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classres_1_1Ok.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classres_1_1result.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -132,16 +132,19 @@ $(document).ready(function(){initNavTree('classres_1_1Ok.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">res::Ok&lt; T &gt; Member List</div></div>
+  <div class="headertitle"><div class="title">res::result&lt; T, E &gt; Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classres_1_1Ok.html">res::Ok&lt; T &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classres_1_1Ok.html#aa4d6e6dacbe21d4e291efc3c08e0045b">Ok</a>()</td><td class="entry"><a class="el" href="classres_1_1Ok.html">res::Ok&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classres_1_1Ok.html#a0a321d009597a5284ca1c90125fb9ed2">Ok</a>(const T &amp;value)</td><td class="entry"><a class="el" href="classres_1_1Ok.html">res::Ok&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classres_1_1Ok.html#a166c9acb93b64c27c7fafe112b604a15">Ok</a>(T &amp;&amp;value)</td><td class="entry"><a class="el" href="classres_1_1Ok.html">res::Ok&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classres_1_1Ok.html#af1ef17effc3000b44c0b2fb42be0abbc">operator Result&lt; T, E &gt;</a>() const</td><td class="entry"><a class="el" href="classres_1_1Ok.html">res::Ok&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>err</b> (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>error</b>() const -&gt; const E &amp; (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>is_ok</b>() const -&gt; bool (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>ok</b> (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator bool</b>() const (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>operator!</b>() const -&gt; bool (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>value</b>() const -&gt; const T &amp; (defined in <a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a>)</td><td class="entry"><a class="el" href="classres_1_1result.html">res::result&lt; T, E &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

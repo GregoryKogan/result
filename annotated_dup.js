@@ -1,8 +1,9 @@
 var annotated_dup =
 [
     [ "res", null, [
-      [ "Err", "classres_1_1Err.html", "classres_1_1Err" ],
-      [ "Ok", "classres_1_1Ok.html", "classres_1_1Ok" ],
-      [ "Result", "classres_1_1Result.html", "classres_1_1Result" ]
+      [ "err", "classres_1_1err.html", null ],
+      [ "ok", "classres_1_1ok.html", null ],
+      [ "result", "classres_1_1result.html", null ],
+      [ "result< void, E >", "classres_1_1result_3_01void_00_01E_01_4.html", null ]
     ] ]
 ];

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11" />
     <meta name="generator" content="Doxygen 1.9.5" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Result C++: result-cpp</title>
+    <title>result: result-cpp</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -60,12 +60,12 @@
               <tr id="projectrow">
                 <td id="projectalign">
                   <div id="projectname">
-                    Result C++<span
+                    result<span
                       id="projectnumber"
                       >&#160;0.0.1</span
                     >
                   </div>
-                  <div id="projectbrief">A modern C++ Result&lt;T, E&gt; type inspired by Rust</div>
+                  <div id="projectbrief">A C++ result&lt;T, E&gt; type inspired by Rust</div>
                 </td>
               </tr>
             </tbody>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_README"></a> <img src="https://img.shields.io/github/license/GregoryKogan/result-cpp" alt="GitHub License" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/tests.yml?logo=github&amp;label=tests" alt="Github Tests workflow" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/docs.yml?logo=files&amp;logoColor=f5f5f5&amp;label=docs" alt="Github Tests workflow" class="inline"/></p>
-<p >Result-CPP is a C++ library that provides a <code>Result&lt;T, E&gt;</code> type, which can be used to return and propagate errors. It's inspired by Rust's <code>std::Result</code> type. It's a header-only library, so you can just copy the <code><a class="el" href="result_8h.html" title="result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propag...">result.h</a></code> file into your project and start using it. Or you can use it as a git submodule. Or fetch it with <a href="https://cmake.org/cmake/help/latest/module/FetchContent.html">FetchContent</a> if you're using CMake.</p>
+<p >Result-CPP is a C++ library that provides a <code>Result&lt;T, E&gt;</code> type, which can be used to return and propagate errors. It's inspired by Rust's <code>std::Result</code> type. It's a header-only library, so you can just copy the <code><a class="el" href="result_8h.html" title="result is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propagate ...">result.h</a></code> file into your project and start using it. Or you can use it as a git submodule. Or fetch it with <a href="https://cmake.org/cmake/help/latest/module/FetchContent.html">FetchContent</a> if you're using CMake.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Documentation</h1>
 <p >You can find the documentation <a href="https://gregorykogan.github.io/result-cpp/">here</a>.</p>
@@ -155,11 +155,11 @@ Usage</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="result_8h.html">result.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="classres_1_1Result.html">res::Result&lt;int, std::string&gt;</a> divide(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) {</div>
+<div class="line">res::Result&lt;int, std::string&gt; divide(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) {</div>
 <div class="line">  <span class="keywordflow">if</span> (b == 0) {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="classres_1_1Err.html">res::Err</a>(std::string(<span class="stringliteral">&quot;Division by zero&quot;</span>));</div>
+<div class="line">    <span class="keywordflow">return</span> res::Err(std::string(<span class="stringliteral">&quot;Division by zero&quot;</span>));</div>
 <div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="classres_1_1Ok.html">res::Ok</a>(a / b);</div>
+<div class="line">    <span class="keywordflow">return</span> res::Ok(a / b);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -172,10 +172,7 @@ Usage</h1>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Error: &quot;</span> &lt;&lt; result.unwrap_err() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassres_1_1Err_html"><div class="ttname"><a href="classres_1_1Err.html">res::Err</a></div><div class="ttdoc">Err object represents an unsuccessful outcome and can be converted to a Result.</div><div class="ttdef"><b>Definition:</b> result.h:96</div></div>
-<div class="ttc" id="aclassres_1_1Ok_html"><div class="ttname"><a href="classres_1_1Ok.html">res::Ok</a></div><div class="ttdoc">Ok object represents a successful outcome and can be converted to a Result.</div><div class="ttdef"><b>Definition:</b> result.h:71</div></div>
-<div class="ttc" id="aclassres_1_1Result_html"><div class="ttname"><a href="classres_1_1Result.html">res::Result</a></div><div class="ttdoc">Result is a type that represents either success or failure.</div><div class="ttdef"><b>Definition:</b> result.h:25</div></div>
-<div class="ttc" id="aresult_8h_html"><div class="ttname"><a href="result_8h.html">result.h</a></div><div class="ttdoc">result-cpp is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propag...</div></div>
+<div class="ttc" id="aresult_8h_html"><div class="ttname"><a href="result_8h.html">result.h</a></div><div class="ttdoc">result is a C++ library that provides a Result&lt;T, E&gt; type, which can be used to return and propagate ...</div></div>
 </div><!-- fragment --><p >You can find many other use cases within <a href="https://github.com/GregoryKogan/result-cpp/tree/main/tests">/tests</a> directory</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Contributing</h1>
