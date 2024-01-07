@@ -1,4 +1,5 @@
 build
+venv
 docs/html
 docs/latex
 .vscode
