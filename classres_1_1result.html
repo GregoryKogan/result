@@ -159,9 +159,16 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator!</b> () cons
 <tr class="memitem:ae853bb1387642284b470627aeb16d4bb"><td class="memItemLeft" align="right" valign="top"><a id="ae853bb1387642284b470627aeb16d4bb" name="ae853bb1387642284b470627aeb16d4bb"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>value</b> () const -&gt; const T &amp;</td></tr>
 <tr class="separator:ae853bb1387642284b470627aeb16d4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15e6f7184106ca1d5fb57df11d51ae4a"><td class="memItemLeft" align="right" valign="top"><a id="a15e6f7184106ca1d5fb57df11d51ae4a" name="a15e6f7184106ca1d5fb57df11d51ae4a"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>value_or</b> (T &amp;&amp;default_value) const -&gt; T</td></tr>
+<tr class="separator:a15e6f7184106ca1d5fb57df11d51ae4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3830834d00209c869d042c76bdc7e721"><td class="memItemLeft" align="right" valign="top"><a id="a3830834d00209c869d042c76bdc7e721" name="a3830834d00209c869d042c76bdc7e721"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> () const -&gt; const E &amp;</td></tr>
 <tr class="separator:a3830834d00209c869d042c76bdc7e721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b57aea0035eb40c80a25ffc63325f2"><td class="memTemplParams" colspan="2"><a id="a32b57aea0035eb40c80a25ffc63325f2" name="a32b57aea0035eb40c80a25ffc63325f2"></a>
+template&lt;typename F , typename U  = std::invoke_result_t&lt;F, T&gt;&gt; </td></tr>
+<tr class="memitem:a32b57aea0035eb40c80a25ffc63325f2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>map</b> (F &amp;&amp;functor) const -&gt; <a class="el" href="classres_1_1result.html">result</a>&lt; U, E &gt;</td></tr>
+<tr class="separator:a32b57aea0035eb40c80a25ffc63325f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
