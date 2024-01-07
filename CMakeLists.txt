@@ -19,7 +19,7 @@ add_custom_command(
   OUTPUT result.h
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMAND python3 -m venv venv
-  COMMAND source venv/bin/activate
+  COMMAND . ./venv/bin/activate
   COMMAND pip3 install quom
   COMMAND quom src/result-wrapper.h result.h
   COMMENT "Merging source files into single header"
