@@ -37,10 +37,16 @@ public:
 };
 
 template <typename E> template <typename T> inline err<E>::operator result<T, E>() const {
-  return result<T, E>(error_, false);
+  auto res = result<T, E>();
+  res.make_unsuccessful(error_);
+  return res;
 }
 
-template <typename E> inline err<E>::operator result<void, E>() const { return result<void, E>(error_); }
+template <typename E> inline err<E>::operator result<void, E>() const {
+  auto res = result<void, E>();
+  res.make_unsuccessful(error_);
+  return res;
+}
 
 } // namespace res
 
@@ -66,10 +72,16 @@ public:
 };
 
 template <typename T> template <typename E> inline ok<T>::operator result<T, E>() const {
-  return result<T, E>(value_, true);
+  auto res = result<T, E>();
+  res.make_successful(value_);
+  return res;
 }
 
-template <typename T> template <typename E> inline ok<T>::operator result<void, E>() const { return result<void, E>(); }
+template <typename T> template <typename E> inline ok<T>::operator result<void, E>() const {
+  auto res = result<void, E>();
+  res.make_successful();
+  return res;
+}
 
 } // namespace res
 
@@ -85,12 +97,20 @@ template <typename T, typename E> class result {
   static_assert(!std::is_same_v<T, void>, "T (value type) must not be void");
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 
-  bool successful_;
+  bool successful_ = false;
   T value_;
   E error_;
 
-  result(T value, bool successful) : value_(std::move(value)), successful_(successful) {}
-  result(E error, bool successful) : error_(std::move(error)), successful_(successful) {}
+  result() = default;
+
+  auto make_successful(T value) -> void {
+    successful_ = true;
+    value_ = std::move(value);
+  }
+  auto make_unsuccessful(E error) -> void {
+    successful_ = false;
+    error_ = std::move(error);
+  }
 
   template <typename U> friend class ok;
   template <typename U> friend class err;
@@ -119,11 +139,16 @@ public:
 template <typename E> class result<void, E> {
   static_assert(!std::is_same_v<E, void>, "E (error type) must not be void");
 
-  bool successful_;
+  bool successful_ = false;
   E error_;
 
-  explicit result() : successful_(true) {}
-  explicit result(E error) : error_(std::move(error)), successful_(false) {}
+  result() = default;
+
+  auto make_successful() -> void { successful_ = true; }
+  auto make_unsuccessful(E error) -> void {
+    successful_ = false;
+    error_ = std::move(error);
+  }
 
   template <typename U> friend class ok;
   template <typename U> friend class err;
