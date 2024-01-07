@@ -33,11 +33,14 @@ public:
   explicit err(E error) : error_(std::move(error)) {}
 
   template <typename T> operator result<T, E>() const; // NOLINT(google-explicit-constructor)
+  operator result<void, E>() const;                    // NOLINT(google-explicit-constructor)
 };
 
 template <typename E> template <typename T> inline err<E>::operator result<T, E>() const {
   return result<T, E>(error_, false);
 }
+
+template <typename E> inline err<E>::operator result<void, E>() const { return result<void, E>(error_); }
 
 } // namespace res
 
@@ -109,7 +112,7 @@ template <typename E> class result<void, E> {
   E error_;
 
   explicit result() : successful_(true) {}
-  explicit result(const E &error) : error_(error), successful_(false) {}
+  explicit result(E error) : error_(std::move(error)), successful_(false) {}
 
   template <typename U> friend class ok;
   template <typename U> friend class err;
@@ -123,12 +126,17 @@ public:
 };
 
 template <typename T, typename E> inline auto result<T, E>::value() const -> const T & {
-  if (!is_ok()) { throw std::runtime_error("value() called on result with error"); }
+  if (!is_ok()) { throw std::logic_error("value() called on result with error"); }
   return value_;
 }
 
 template <typename T, typename E> inline auto result<T, E>::error() const -> const E & {
-  if (is_ok()) { throw std::runtime_error("error() called on result with value"); }
+  if (is_ok()) { throw std::logic_error("error() called on result with value"); }
+  return error_;
+}
+
+template <typename E> inline auto result<void, E>::error() const -> const E & {
+  if (is_ok()) { throw std::logic_error("error() called on result with value"); }
   return error_;
 }
 

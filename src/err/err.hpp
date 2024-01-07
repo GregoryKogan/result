@@ -16,10 +16,13 @@ public:
   explicit err(E error) : error_(std::move(error)) {}
 
   template <typename T> operator result<T, E>() const; // NOLINT(google-explicit-constructor)
+  operator result<void, E>() const;                    // NOLINT(google-explicit-constructor)
 };
 
 template <typename E> template <typename T> inline err<E>::operator result<T, E>() const {
   return result<T, E>(error_, false);
 }
+
+template <typename E> inline err<E>::operator result<void, E>() const { return result<void, E>(error_); }
 
 } // namespace res

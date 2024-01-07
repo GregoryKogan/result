@@ -10,6 +10,7 @@ TEST(BooleanOperations, Ok) {
   EXPECT_TRUE(result.is_ok());
   EXPECT_FALSE(!result.is_ok());
   EXPECT_EQ(result.value(), 42);
+  EXPECT_THROW(auto val = result.error(), std::logic_error); // NOLINT
 }
 
 TEST(BooleanOperations, Err) {
@@ -20,6 +21,7 @@ TEST(BooleanOperations, Err) {
   EXPECT_FALSE(result.is_ok());
   EXPECT_TRUE(!result.is_ok());
   EXPECT_EQ(result.error(), "error");
+  EXPECT_THROW(auto val = result.value(), std::logic_error); // NOLINT
 }
 
 TEST(BooleanOperations, VoidOk) {
@@ -28,4 +30,16 @@ TEST(BooleanOperations, VoidOk) {
   EXPECT_FALSE(!result);
   EXPECT_TRUE(result.is_ok());
   EXPECT_FALSE(!result.is_ok());
+  EXPECT_THROW(auto val = result.error(), std::logic_error); // NOLINT
+}
+
+TEST(BooleanOperations, VoidErr) {
+  const std::string error = "error";
+  res::result<void, std::string> result = res::err(error);
+  EXPECT_FALSE(result);
+  EXPECT_TRUE(!result);
+  EXPECT_FALSE(result.is_ok());
+  EXPECT_TRUE(!result.is_ok());
+  EXPECT_EQ(result.error(), "error");
+  // EXPECT_THROW(auto val = result.value(), std::logic_error); - Should not compile
 }
