@@ -34,6 +34,7 @@ public:
   auto operator!() const -> bool { return !is_ok(); }
 
   [[nodiscard]] auto value() const -> const T &;
+  [[nodiscard]] auto value_or(T &&default_value) const -> T;
   [[nodiscard]] auto error() const -> const E &;
 };
 
@@ -61,6 +62,11 @@ public:
 template <typename T, typename E> inline auto result<T, E>::value() const -> const T & {
   if (!is_ok()) { throw std::logic_error("value() called on result with error"); }
   return value_;
+}
+
+template <typename T, typename E> inline auto result<T, E>::value_or(T &&default_value) const -> T {
+  if (is_ok()) { return value_; }
+  return std::move(default_value);
 }
 
 template <typename T, typename E> inline auto result<T, E>::error() const -> const E & {
