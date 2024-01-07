@@ -96,6 +96,7 @@ template <typename T, typename E> class result {
   template <typename U> friend class err;
 
 public:
+  // Observers
   [[nodiscard]] auto is_ok() const -> bool { return successful_; }
   explicit operator bool() const { return is_ok(); }
   auto operator!() const -> bool { return !is_ok(); }
@@ -103,6 +104,15 @@ public:
   [[nodiscard]] auto value() const -> const T &;
   [[nodiscard]] auto value_or(T &&default_value) const -> T;
   [[nodiscard]] auto error() const -> const E &;
+
+  // Monadic operations
+  // map method gets functor F(T x) -> U as an argument and returns result of applying this functor to the value of the
+  // result object. If the result object is an error, the functor is not called and the error is propagated. But the
+  // result value type is changed to U.
+  template <typename F, typename U = std::invoke_result_t<F, T>> auto map(F &&functor) const -> result<U, E> {
+    if (is_ok()) { return ok<U>(std::forward<F>(functor)(value_)); }
+    return err<E>(error_);
+  }
 };
 
 /// @brief `result` class specialization for void value type.
@@ -119,11 +129,21 @@ template <typename E> class result<void, E> {
   template <typename U> friend class err;
 
 public:
+  // Observers
   [[nodiscard]] auto is_ok() const -> bool { return successful_; }
   explicit operator bool() const { return is_ok(); }
   auto operator!() const -> bool { return !is_ok(); }
 
   [[nodiscard]] auto error() const -> const E &;
+
+  // Monadic operations
+  // map method gets functor F() -> U as an argument and returns result of applying this functor to the value of the
+  // result object. If the result object is an error, the functor is not called and the error is propagated. But the
+  // result value type is changed to U.
+  template <typename F, typename U = std::invoke_result_t<F>> auto map(F &&functor) const -> result<U, E> {
+    if (is_ok()) { return ok<U>(std::forward<F>(functor)()); }
+    return err<E>(error_);
+  }
 };
 
 template <typename T, typename E> inline auto result<T, E>::value() const -> const T & {
