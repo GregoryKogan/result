@@ -15,7 +15,7 @@ template <typename T = std::monostate> class ok {
 
 public:
   ok() = default;
-  explicit ok(const T &value) : value_(value) {}
+  explicit ok(T value) : value_(std::move(value)) {}
 
   template <typename E> operator result<T, E>() const;    // NOLINT(google-explicit-constructor)
   template <typename E> operator result<void, E>() const; // NOLINT(google-explicit-constructor)
