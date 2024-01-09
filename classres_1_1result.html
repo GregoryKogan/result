@@ -165,10 +165,14 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>value_or</b> (T &amp;
 <tr class="memitem:a3830834d00209c869d042c76bdc7e721"><td class="memItemLeft" align="right" valign="top"><a id="a3830834d00209c869d042c76bdc7e721" name="a3830834d00209c869d042c76bdc7e721"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> () const -&gt; const E &amp;</td></tr>
 <tr class="separator:a3830834d00209c869d042c76bdc7e721"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32b57aea0035eb40c80a25ffc63325f2"><td class="memTemplParams" colspan="2"><a id="a32b57aea0035eb40c80a25ffc63325f2" name="a32b57aea0035eb40c80a25ffc63325f2"></a>
-template&lt;typename F , typename U  = std::invoke_result_t&lt;F, T&gt;&gt; </td></tr>
-<tr class="memitem:a32b57aea0035eb40c80a25ffc63325f2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>map</b> (F &amp;&amp;functor) const -&gt; <a class="el" href="classres_1_1result.html">result</a>&lt; U, E &gt;</td></tr>
-<tr class="separator:a32b57aea0035eb40c80a25ffc63325f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d403dae44a86e3228cfddb554ac58b"><td class="memTemplParams" colspan="2"><a id="a36d403dae44a86e3228cfddb554ac58b" name="a36d403dae44a86e3228cfddb554ac58b"></a>
+template&lt;typename F , typename R  = std::invoke_result_t&lt;F, T&gt;&gt; </td></tr>
+<tr class="memitem:a36d403dae44a86e3228cfddb554ac58b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>map</b> (F &amp;&amp;functor) const -&gt; <a class="el" href="classres_1_1result.html">result</a>&lt; R, E &gt;</td></tr>
+<tr class="separator:a36d403dae44a86e3228cfddb554ac58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d08e4761a63e10ad5e5aea741c1436"><td class="memTemplParams" colspan="2"><a id="af0d08e4761a63e10ad5e5aea741c1436" name="af0d08e4761a63e10ad5e5aea741c1436"></a>
+template&lt;typename F , typename U  = std::invoke_result_t&lt;F, E&gt;&gt; </td></tr>
+<tr class="memitem:af0d08e4761a63e10ad5e5aea741c1436"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>map_err</b> (F &amp;&amp;functor) const -&gt; <a class="el" href="classres_1_1result.html">result</a>&lt; T, U &gt;</td></tr>
+<tr class="separator:af0d08e4761a63e10ad5e5aea741c1436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
