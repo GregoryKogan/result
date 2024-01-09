@@ -42,18 +42,18 @@ public:
   [[nodiscard]] auto error() const -> const E &;
 
   // Monadic operations
-  // map method gets functor F(T x) -> U as an argument and returns result of applying this functor to the value of the
+  // map method gets functor F(T x) -> R as an argument and returns result of applying this functor to the value of the
   // result object. If the result object is an error, the functor is not called and the error is propagated. But the
-  // result value type is changed to U.
-  template <typename F, typename U = std::invoke_result_t<F, T>> auto map(F &&functor) const -> result<U, E> {
-    if (is_ok()) { return ok<U>(std::forward<F>(functor)(value())); }
+  // result value type is changed to R.
+  template <typename F, typename R = std::invoke_result_t<F, T>> auto map(F &&functor) const -> result<R, E> {
+    if (is_ok()) { return ok<R>(std::forward<F>(functor)(value())); }
     return err<E>(error());
   }
-  // map_err method gets functor F(E x) -> R as an argument and returns result of applying this functor to the error of
+  // map_err method gets functor F(E x) -> U as an argument and returns result of applying this functor to the error of
   // the result object. If the result object is a success, the functor is not called and the value is propagated. But
-  // the result error type is changed to R.
-  template <typename F, typename R = std::invoke_result_t<F, E>> auto map_err(F &&functor) const -> result<T, R> {
-    if (!is_ok()) { return err<R>(std::forward<F>(functor)(error())); }
+  // the result error type is changed to U.
+  template <typename F, typename U = std::invoke_result_t<F, E>> auto map_err(F &&functor) const -> result<T, U> {
+    if (!is_ok()) { return err<U>(std::forward<F>(functor)(error())); }
     return ok<T>(value());
   }
 };
@@ -82,16 +82,16 @@ public:
   [[nodiscard]] auto error() const -> const E &;
 
   // Monadic operations
-  // map method gets functor F() -> U as an argument and returns result of applying this functor to the value of the
+  // map method gets functor F() -> R as an argument and returns result of applying this functor to the value of the
   // result object. If the result object is an error, the functor is not called and the error is propagated. But the
-  // result value type is changed to U.
-  template <typename F, typename U = std::invoke_result_t<F>> auto map(F &&functor) const -> result<U, E> {
-    if (is_ok()) { return ok<U>(std::forward<F>(functor)()); }
+  // result value type is changed to R.
+  template <typename F, typename R = std::invoke_result_t<F>> auto map(F &&functor) const -> result<R, E> {
+    if (is_ok()) { return ok<R>(std::forward<F>(functor)()); }
     return err<E>(error_.value());
   }
   // map_err method for void value type is same as for non-void value type because it does not depend on the value type.
-  template <typename F, typename R = std::invoke_result_t<F, E>> auto map_err(F &&functor) const -> result<void, R> {
-    if (!is_ok()) { return err<R>(std::forward<F>(functor)(error_.value())); }
+  template <typename F, typename U = std::invoke_result_t<F, E>> auto map_err(F &&functor) const -> result<void, U> {
+    if (!is_ok()) { return err<U>(std::forward<F>(functor)(error_.value())); }
     return ok();
   }
 };
