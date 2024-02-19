@@ -1,6 +1,6 @@
 # result-cpp
 
-![GitHub License](https://img.shields.io/github/license/GregoryKogan/result-cpp)
+![GitHub License](https://img.shields.io/github/license/GregoryKogan/result)
 ![Github Tests workflow](https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/tests.yml?logo=github&label=tests)
 ![Github Tests workflow](https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/docs.yml?logo=files&logoColor=f5f5f5&label=docs)
 
