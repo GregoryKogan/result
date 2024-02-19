@@ -1,4 +1,4 @@
-# result-cpp
+# result
 
 ![GitHub License](https://img.shields.io/github/license/GregoryKogan/result)
 ![Github Tests workflow](https://img.shields.io/github/actions/workflow/status/GregoryKogan/result-cpp/tests.yml?logo=github&label=tests)
