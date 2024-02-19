@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['result_2dcpp_0',['result-cpp',['../index.html',1,'']]]
+  ['result_0',['result',['../index.html',1,'']]]
 ];
